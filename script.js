@@ -1,4 +1,3 @@
-
 function gameBoardObj() {
     const gameBoard = {
         board: ['', '', '', '', '', '', '', '', ''],
@@ -20,38 +19,50 @@ function createPlayer(name, marker) {
 
 function playGame () {
     const board = gameBoardObj().gameBoard.board;
-    const player1 = createPlayer("Karl", "X")();
-    const player2 = createPlayer("James", "O")();
+    const player1 = createPlayer("Jack", "X")();
+    const player2 = createPlayer("Jill", "O")();
     let currentPlayer = player1;
 
     const square = document.querySelectorAll('.square');
     square.forEach(square => square.addEventListener('click', () => {
         const index = square.getAttribute('data-index');
-        // console.log(currentPlayer);
-        if (currentPlayer === player1) {
-            if (board[index] === '') {
-                board[index] = currentPlayer.playerMarker;
-                currentPlayer = player2;
-            } else {
-                console.log("Not empty");
-            }
-        } else {
-            if (board[index] === '') {
+        console.log(currentPlayer);
+        if (board[index] === '') {
             board[index] = currentPlayer.playerMarker;
-            currentPlayer = player1;
-            }
-            else {
-                console.log("Not empty");
-            }
+            checkWinner(board);
+            currentPlayer = (currentPlayer === player1) ? player2 : player1;
+        } else {
+            console.log("Not empty");
         }
-        console.log(board); // I need to return this
-        return board
     }));
 
+    function checkWinner (board) {
+        console.log(board);
+        const winningCombinations =  [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6],
+        ];
+
+        for (let combo of winningCombinations) {
+            const [a, b, c] = combo; // Destructure each index for the next part.
+            if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+                console.log(`Winner: ${currentPlayer.playerName}`);
+                return;
+            }
+        }
+
+        if (board.every(square => square !== '')) {
+            console.log("Draw");
+        }
+    };
 };
 
-function checkWinner () {
-    return 
-}
 
-playGame();
+
+playGame()
