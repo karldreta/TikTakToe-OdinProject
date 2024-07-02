@@ -5,23 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe | An Odin Project</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
     <script src="script.js" defer></script>
 </head>
 <body>
     <header id="header"><h1>Tic Tac Toe</h1></header>
     <main id="gameBoard">
-        <div class="square" data-index="0"></div>
+        <div class="square top-left" data-index="0"></div>
         <div class="square" data-index="1"></div>
-        <div class="square" data-index="2"></div>
+        <div class="square top-right" data-index="2"></div>
         <div class="square" data-index="3"></div>
         <div class="square" data-index="4"></div>
         <div class="square" data-index="5"></div>
-        <div class="square" data-index="6"></div>
+        <div class="square bottom-left" data-index="6"></div>
         <div class="square" data-index="7"></div>
-        <div class="square" data-index="8"></div>
+        <div class="square bottom-right" data-index="8"></div>
     </main>
     <section class="nav-panel">
-        <button id="reset">Reset</button>
+        <button id="reset" class="btn">Reset</button>
     </section>
 </body>
 </html>
