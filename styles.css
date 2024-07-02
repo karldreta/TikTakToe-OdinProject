@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family: "Nanum Pen Script", cursive;
 }
 
 body {
@@ -12,21 +13,18 @@ body {
     margin: 0;
     padding: 0;
     background-color: #e0e0e0;
-    font-family: "Nanum Pen Script", cursive;
-    font-weight: 400;
-    font-style: normal;
 }
 
 header {
     margin: 0;
     padding: 0;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 header h1 {
     margin: 0;
     padding: 0;
-    font-size: 80px;
+    font-size: 60px;
 }
 
 main {
@@ -37,14 +35,16 @@ main {
         8px 8px 16px #a3b1c6, 
         -8px -8px 16px #ffffff;
     background: #e0e0e0; 
-    padding: 10px; 
+    padding: 5px;
 }
 
 main > .square {
     border: none; 
-    width: 150px;
-    height: 150px;
-    font-size: 180px;
+    width: 100px;
+    height: 100px;
+    font-size: 110px;
+    font-weight: 900;
+    color: #880808;
     text-align: center;
     display: flex; 
     justify-content: center;
@@ -54,7 +54,7 @@ main > .square {
         inset 4px 4px 8px #a3b1c6, 
         inset -4px -4px 8px #ffffff;
     border-radius: 10px;
-    margin: 5px; 
+    margin: 3px; 
 }
 
 .square.top-left {
@@ -74,7 +74,7 @@ main > .square {
 }
 
 .nav-panel {
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 .nav-panel #reset  {
@@ -84,19 +84,83 @@ main > .square {
         8px 8px 16px #a3b1c6,
         -8px -8px 16px #ffffff;
     border-radius: 10px;
-    height: 50px;
-    width: 120px;
+    height: 35px;
+    width: 100px;
     display: flex; 
     justify-content: center;
     cursor: pointer;
-    transition: box-shadow 0.3s;
+    transition: 0.3s;
     border: none;
-    font-family: "Nanum Pen Script", cursive;
-    font-size: 35px;
+    font-size: 25px;
 }
 
 .nav-panel #reset:hover {
     box-shadow: 
         inset 4px 4px 8px #a3b1c6,
         inset -4px -4px 8px #ffffff;
+}
+
+/* Initial Dialog */ 
+
+.playerInput {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    height: 250px;
+    padding: 20px;
+    font-size: 20px;
+    background-color: #FFFF80;
+    border: 3px solid #FF5580;
+    border-radius: 20px;
+    box-shadow: 10px 10px;
+}
+
+.playerInput h2 {
+    margin: 0;
+    color: #FF0080;
+}
+
+.playerInput form {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 10px;
+    margin-top: 0;
+}
+
+.playerInput form label {
+    color: #FF0080;
+}
+
+.playerInput form input {
+    margin-bottom: 10px;
+    padding: 2px;
+    padding-left: 5px;
+    border: 1.5px solid #ff557f8a;
+    border-radius: 5px;
+}
+
+.playerInput form input:focus {
+    border: 1.5px solid #FF0080;
+    outline: none;
+}
+
+.playerInput button {
+    margin-top: 20px;
+    background-color: #FFFF80;
+    border: 2px solid #FF5580;
+    border-radius: 20px;
+    text-align: center;
+    padding: 5px;
+    letter-spacing: 2px;
+    color: #FF0080;
+}
+
+.playerInput button:hover {
+    background-color: #f19ed3a2;
+}
+
+.playerInput button:active {
+    opacity: .7;
 }
