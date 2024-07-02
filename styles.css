@@ -6,20 +6,37 @@ body {
     width: 100vw;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 0;
     padding: 0;
 }
 
+header {
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+header h1 {
+    margin: 0;
+    padding: 0;
+}
+
 main {
-    border: 1px solid red;
+    border: 1px solid black;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
 
 main > .square {
-    border: 1px solid blue;
+    border: 1px solid black;
     width: 150px;
     height: 150px;
+    font-size: 120px;
+    text-align: center;
+    align-items: center;
+    padding: 0;
 }

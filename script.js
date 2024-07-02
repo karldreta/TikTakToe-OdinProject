@@ -22,22 +22,21 @@ function playGame () {
     const player1 = createPlayer("Jack", "X")();
     const player2 = createPlayer("Jill", "O")();
     let currentPlayer = player1;
+    let gameRunning = true;
 
     const square = document.querySelectorAll('.square');
     square.forEach(square => square.addEventListener('click', () => {
         const index = square.getAttribute('data-index');
-        console.log(currentPlayer);
-        if (board[index] === '') {
+        if (board[index] === '' && gameRunning) {
             board[index] = currentPlayer.playerMarker;
+            square.textContent = currentPlayer.playerMarker;
             checkWinner(board);
             currentPlayer = (currentPlayer === player1) ? player2 : player1;
-        } else {
-            console.log("Not empty");
         }
     }));
 
     function checkWinner (board) {
-        console.log(board);
+        const header = document.querySelector('#header h1');
         const winningCombinations =  [
             [0, 1, 2],
             [3, 4, 5],
@@ -48,21 +47,22 @@ function playGame () {
             [0, 4, 8],
             [2, 4, 6],
         ];
+        // Now, we need to iterate over the winningCombinations array. Each element in this array is itself an array that represents a winning combination of indices on the game board. If all the indices in one of these sub-arrays contain the same mark (either 'X' or 'O'), it indicates a win for the respective player.
 
         for (let combo of winningCombinations) {
             const [a, b, c] = combo; // Destructure each index for the next part.
             if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-                console.log(`Winner: ${currentPlayer.playerName}`);
+                header.textContent = `Winner: ${currentPlayer.playerName}`;
+                gameRunning = false;
                 return;
             }
         }
 
         if (board.every(square => square !== '')) {
             console.log("Draw");
+            gameRunning = false;
         }
     };
 };
-
-
 
 playGame()
