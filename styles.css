@@ -119,6 +119,7 @@ main > .square {
 .playerInput h2 {
     margin: 0;
     color: #FF0080;
+    margin-bottom: 10px;
 }
 
 .playerInput form {

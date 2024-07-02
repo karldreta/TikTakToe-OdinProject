@@ -17,10 +17,38 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    function playGame() {
+    function startGame () {
+        const playerInputForm = document.querySelector('.playerInput')
+        const playerNames = document.querySelector('#playerNameInputs');
+        const playerX = document.querySelector('#playerX');
+        const playerO = document.querySelector('#playerO');
+        const gameTitle = document.querySelector('#header');
+        gameTitle.style.display = 'none';
+        const gameBoard = document.querySelector("#gameBoard");
+        gameBoard.style.display = 'none';
+        const navPanel = document.querySelector('.nav-panel');
+        navPanel.style.display = 'none';
+
+
+        playerNames.addEventListener('submit', e => {
+            e.preventDefault();
+            const playerXName = playerX.value;
+            const playerOName = playerO.value;
+            playerInputForm.close();
+            playerInputForm.style.display = 'none';
+            gameTitle.style.display = 'block';
+            gameBoard.style.display = 'grid';
+            navPanel.style.display = 'block';
+            playGame(playerXName, playerOName);
+        })
+    }
+
+    startGame()
+
+    function playGame(playerXName, playerOName) {
         let board = gameBoardObj().gameBoard.board;
-        const player1 = createPlayer("Jack", "X")();
-        const player2 = createPlayer("Jill", "O")();
+        const player1 = createPlayer(playerXName, "X")();
+        const player2 = createPlayer(playerOName, "O")();
         let currentPlayer = player1;
         let gameRunning = true;
 
@@ -76,6 +104,4 @@ document.addEventListener('DOMContentLoaded', () => {
             header.textContent = "Tic Tac Toe";
         }
     }
-
-    playGame();
 });
