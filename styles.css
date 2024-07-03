@@ -79,6 +79,7 @@ main > .square {
     grid-template-columns: repeat(2, 1fr);
     width: 200px;
     gap: 20px;
+    margin-bottom: 100px;
 }
 
 .nav-panel #reset,
@@ -113,18 +114,18 @@ main > .square {
     flex-direction: column;
     align-items: center;
     width: 230px;
-    height: 300px;
+    height: 350px;
     padding: 20px;
     font-size: 20px;
-    background-color: #FFFF80;
-    border: 3px solid #FF5580;
+    background-color: #e0e0e0;  
+    border: none; 
     border-radius: 20px;
-    box-shadow: 15px 15px;
+    box-shadow: 8px 8px 16px #bebebe, -8px -8px 16px #ffffff; 
 }
 
 .playerInput h2 {
     margin: 0;
-    color: #FF0080;
+    color: #333333; 
     margin-bottom: 10px;
     font-size: 35px;
 }
@@ -138,47 +139,59 @@ main > .square {
 }
 
 .playerInput form label {
-    color: #FF0080;
+    color: #666666;
+    letter-spacing: 1px;
+}
+
+.playerInput form label > span {
+    font-size: 30px;
 }
 
 .playerInput form input {
-    padding: 2px;
-    padding-left: 5px;
-    border: 1.5px solid #ff557f8a;
-    border-radius: 5px;
+    padding: 6px;
+    padding-left: 10px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 10px;
+    background-color: #e0e0e0;
+    box-shadow: inset 4px 4px 8px #bebebe, inset -4px -4px 8px #ffffff;
 }
 
 .playerInput .showError {
     margin: 0;
     padding: 0;
     font-size: 15px;
-    color: 	#ff1717;
+    letter-spacing: 1px;
+    color: #ff4d4d;
     height: 16px;
     margin-bottom: 10px;
 }
 
-
 .playerInput form input:focus {
-    border: 1.5px solid #FF0080;
+    border: none;
     outline: none;
+    box-shadow: inset 4px 4px 8px #bebebe, inset -4px -4px 8px #ffffff;
 }
 
 .playerInput button {
     margin-top: 20px;
-    background-color: #FFFF80;
-    border: 2px solid #FF5580;
+    background-color: #e0e0e0;
+    border: none;
     border-radius: 20px;
     text-align: center;
-    padding: 5px;
-    font-size: 14px;
-    letter-spacing: 2px;
-    color: #FF0080;
+    padding: 10px;
+    font-size: 17px;
+    letter-spacing: 1px;
+    color: #333333;
+    box-shadow: 4px 4px 8px #bebebe, -4px -4px 8px #ffffff;
 }
 
 .playerInput button:hover {
-    background-color: #f19ed3a2;
+    background-color: #d3d3d3;
+    cursor: pointer;
 }
 
 .playerInput button:active {
-    opacity: .7;
+    box-shadow: inset 4px 4px 8px #bebebe, inset -4px -4px 8px #ffffff;
 }
