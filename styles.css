@@ -75,9 +75,14 @@ main > .square {
 
 .nav-panel {
     margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 200px;
+    gap: 20px;
 }
 
-.nav-panel #reset  {
+.nav-panel #reset,
+.nav-panel #switch  {
     align-items: center;
     background-color: #e0e0e0;
     box-shadow: 
@@ -94,7 +99,8 @@ main > .square {
     font-size: 25px;
 }
 
-.nav-panel #reset:hover {
+.nav-panel #reset:hover,
+.nav-panel #switch:hover {
     box-shadow: 
         inset 4px 4px 8px #a3b1c6,
         inset -4px -4px 8px #ffffff;

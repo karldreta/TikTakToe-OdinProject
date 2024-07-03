@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 playerInputForm.style.display = 'none';
                 gameTitle.style.display = 'block';
                 gameBoard.style.display = 'grid';
-                navPanel.style.display = 'block';
+                navPanel.style.display = 'grid';
                 playGame(playerXName, playerOName);
         });
 
@@ -60,7 +60,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const player1 = createPlayer(playerXName, "X")();
         const player2 = createPlayer(playerOName, "O")();
         let currentPlayer = player1;
+        let lastPlayer = player2;
         let gameRunning = true;
+        const header = document.querySelector('h1');
+        header.textContent = `${currentPlayer.playerName} goes first`;
 
         const square = document.querySelectorAll('.square');
         square.forEach(square => square.addEventListener('click', () => {
@@ -68,13 +71,21 @@ document.addEventListener('DOMContentLoaded', () => {
             if (board[index] === '' && gameRunning) {
                 board[index] = currentPlayer.playerMarker;
                 square.textContent = currentPlayer.playerMarker;
+                if (currentPlayer === player1) {
+                    currentPlayer = player2;
+                    lastPlayer = player1;
+                    header.textContent = `${currentPlayer.playerName}'s turn`
+                } else {
+                    currentPlayer = player1;
+                    lastPlayer = player2;
+                    header.textContent = `${currentPlayer.playerName}'s turn`
+                }
                 checkWinner(board);
-                currentPlayer = (currentPlayer === player1) ? player2 : player1;
+                
             }
         }));
 
         function checkWinner(board) {
-            const header = document.querySelector('h1');
             const winningCombinations = [
                 [0, 1, 2],
                 [3, 4, 5],
@@ -90,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
             for (let combo of winningCombinations) {
                 const [a, b, c] = combo; // Destructure each index for the next part.
                 if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-                    header.textContent = `Winner: ${currentPlayer.playerName}`;
+                    header.textContent = `Winner: ${lastPlayer.playerName}`;
                     gameRunning = false;
                     return;
                 }
@@ -102,6 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+        // Below: To restart the game
         const resetBtn = document.querySelector('#reset');
         resetBtn.addEventListener('click', restartGame);
 
@@ -111,7 +123,20 @@ document.addEventListener('DOMContentLoaded', () => {
             currentPlayer = player1;
             gameRunning = true;
             const header = document.querySelector('h1');
-            header.textContent = "Tic Tac Toe";
+            header.textContent = `${currentPlayer.playerName} goes first`;
+        }
+
+        // Below to switch player marks
+        const switchBtn = document.querySelector('#switch');
+        switchBtn.addEventListener('click', switcheroo);
+
+        function switcheroo () {
+            board = ['', '', '', '', '', '', '', '', ''];
+            square.forEach(square => square.textContent = '');
+            currentPlayer = player2;
+            gameRunning = true;
+            const header = document.querySelector('h1');
+            header.textContent = `Switched: ${currentPlayer.playerName} goes first`;
         }
     }
 });
