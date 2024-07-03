@@ -1,31 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Happy+Monkey&family=Nanum+Pen+Script&display=swap');
+
 * {
     box-sizing: border-box;
-    font-family: "Nanum Pen Script", cursive;
 }
 
 body {
     width: 100vw;
     height: 100vh;
+    position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: baseline;
     align-items: center;
     margin: 0;
     padding: 0;
     background-color: #e0e0e0;
+    /* overflow: hidden; */
 }
 
 header {
     margin: 0;
     padding: 0;
-    margin-bottom: 15px;
+    font-family: "Nanum Pen Script", cursive;
+    margin-bottom: 12px;
 }
 
 header h1 {
     margin: 0;
     padding: 0;
     font-size: 60px;
+    text-align: center;
     color: #333333; 
+    white-space: nowrap;
+    overflow: hidden;
+}
+#scoreBoard {
+    /* border: 1px solid red; */
+    width: 250px;
+    height: 150px;
+    border-radius: 20px;
+    box-shadow: 
+    8px 8px 16px #a3b1c6, 
+    -8px -8px 16px #ffffff;
+    background: #e0e0e0; 
+    padding: 5px;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+    font-family: "Happy Monkey", system-ui;
+    color: #333333; 
+}
+
+#scoreBoard h3 {
+    margin: 10px 0;
+    padding: 0;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+#scoreBoard div {
+    height: 30px;
+    width: 180px;
+    margin: 0;
+    margin-bottom: 15px;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    font-size: 15px;
+    border-radius: 20px;
+    background: #e0e0e0; 
+    box-shadow: 
+    8px 8px 16px #a3b1c6, 
+    -8px -8px 16px #ffffff;
+    padding-left: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+#scoreBoard div.player1Score {
+    margin-top: 5px;
 }
 
 main {
@@ -43,6 +102,7 @@ main > .square {
     border: none; 
     width: 100px;
     height: 100px;
+    font-family: "Nanum Pen Script", cursive;
     font-size: 110px;
     font-weight: 900;
     color: #ff4d4d;
@@ -80,7 +140,6 @@ main > .square {
     grid-template-columns: repeat(2, 1fr);
     width: 200px;
     gap: 20px;
-    margin-bottom: 100px;
 }
 
 .nav-panel #reset,
@@ -99,6 +158,7 @@ main > .square {
     cursor: pointer;
     transition: 0.3s;
     border: none;
+    font-family: "Nanum Pen Script", cursive;
     font-size: 25px;
 }
 
@@ -112,12 +172,14 @@ main > .square {
 /* Initial Dialog */ 
 
 .playerInput {
+    position: relative; /* This will center our dialog automatically since body is set to flex and center all elements */
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 230px;
     height: 350px;
     padding: 20px;
+    font-family: "Nanum Pen Script", cursive;
     font-size: 20px;
     background-color: #e0e0e0;  
     border: none; 
@@ -152,6 +214,7 @@ main > .square {
 .playerInput form input {
     padding: 6px;
     padding-left: 10px;
+    font-family: "Nanum Pen Script", cursive;
     font-size: 16px;
     letter-spacing: 1px;
     border: none;
@@ -183,6 +246,7 @@ main > .square {
     border-radius: 20px;
     text-align: center;
     padding: 10px;
+    font-family: "Nanum Pen Script", cursive;
     font-size: 17px;
     letter-spacing: 1px;
     color: #333333;

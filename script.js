@@ -22,6 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const playerNames = document.querySelector('#playerNameInputs');
         const playerX = document.querySelector('#playerX');
         const playerO = document.querySelector('#playerO');
+        const scoreBoard = document.querySelector('#scoreBoard');
+        scoreBoard.style.display = 'none';
         const gameTitle = document.querySelector('#header');
         gameTitle.style.display = 'none';
         const gameBoard = document.querySelector("#gameBoard");
@@ -44,10 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
                 playerInputForm.close();
                 playerInputForm.style.display = 'none';
+                scoreBoard.style.display = 'flex';
                 gameTitle.style.display = 'block';
                 gameBoard.style.display = 'grid';
                 navPanel.style.display = 'grid';
-                playGame(playerXName, playerOName);
+                playGame(playerXName, playerOName, scoreBoard);
         });
 
     }
@@ -55,10 +58,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     startGame()
 
-    function playGame(playerXName, playerOName) {
+    function playGame(playerXName, playerOName, scoreBoard) {
         let board = gameBoardObj().gameBoard.board;
         const player1 = createPlayer(playerXName, "X")();
         const player2 = createPlayer(playerOName, "O")();
+
+        // Initialize scores for tracking
+        player1.score = 0;
+        player2.score = 0;
+        
+        // Score Board
+        let displayPlayer1Score = scoreBoard.querySelector('.player1Score');
+        let displayPlayer2Score = scoreBoard.querySelector('.player2Score');
+        displayPlayer1Score.textContent = `${player1.playerName}: `;
+        displayPlayer2Score.textContent = `${player2.playerName}: `;
+
         let currentPlayer = player1;
         let lastPlayer = player2;
         let gameRunning = true;
@@ -102,6 +116,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 const [a, b, c] = combo; // Destructure each index for the next part.
                 if (board[a] && board[a] === board[b] && board[a] === board[c]) {
                     header.textContent = `Winner: ${lastPlayer.playerName}!`;
+                    // Below: Track the scores
+                    if (lastPlayer === player1) {
+                        player1.score++;
+                    } else if (lastPlayer === player2) {
+                        player2.score++;
+                    }
+                    displayPlayer1Score.textContent = `${player1.playerName}: ${player1.score}`;
+                    displayPlayer2Score.textContent = `${player2.playerName}: ${player2.score}`;
+                    console.log(player2.score);
                     gameRunning = false;
                     return;
                 }
