@@ -137,13 +137,14 @@ main > .square {
 .nav-panel {
     margin-top: 30px;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    width: 200px;
+    grid-template-columns: repeat(3, 1fr);
+    width: 360px;
     gap: 20px;
 }
 
 .nav-panel #reset,
-.nav-panel #switch  {
+.nav-panel #switch,
+.nav-panel #restartGame  {
     align-items: center;
     background-color: #e0e0e0;
     color: #333333; 
@@ -167,6 +168,14 @@ main > .square {
     box-shadow: 
         inset 4px 4px 8px #a3b1c6,
         inset -4px -4px 8px #ffffff;
+}
+
+.nav-panel #restartGame:hover {
+    background-color: #a80000;
+    color: #e0e0e0;
+    box-shadow: 
+        inset 4px 4px 8px #500000,
+        inset -4px -4px 8px #900000;
 }
 
 /* Initial Dialog */ 

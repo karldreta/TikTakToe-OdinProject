@@ -156,5 +156,11 @@ document.addEventListener('DOMContentLoaded', () => {
             gameRunning = true;
             header.textContent = `Switched: ${currentPlayer.playerName} goes first`;
         }
+
+        // Below: Restart Entire Game to allow new players
+        
+        document.querySelector('#restartGame').addEventListener('click', () => {
+            window.location.href = window.location.href;
+        });
     }
 });
