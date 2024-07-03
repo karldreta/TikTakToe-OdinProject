@@ -25,6 +25,7 @@ header h1 {
     margin: 0;
     padding: 0;
     font-size: 60px;
+    color: #333333; 
 }
 
 main {
@@ -44,7 +45,7 @@ main > .square {
     height: 100px;
     font-size: 110px;
     font-weight: 900;
-    color: #880808;
+    color: #ff4d4d;
     text-align: center;
     display: flex; 
     justify-content: center;
@@ -86,6 +87,7 @@ main > .square {
 .nav-panel #switch  {
     align-items: center;
     background-color: #e0e0e0;
+    color: #333333; 
     box-shadow: 
         8px 8px 16px #a3b1c6,
         -8px -8px 16px #ffffff;

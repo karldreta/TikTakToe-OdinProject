@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
             for (let combo of winningCombinations) {
                 const [a, b, c] = combo; // Destructure each index for the next part.
                 if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-                    header.textContent = `Winner: ${lastPlayer.playerName}`;
+                    header.textContent = `Winner: ${lastPlayer.playerName}!`;
                     gameRunning = false;
                     return;
                 }
