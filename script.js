@@ -12,7 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return function () {
             return { 
                 playerName: name,
-                playerMarker: marker
+                playerMarker: marker,
+                score: 0,
             };
         };
     }
@@ -62,10 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
         let board = gameBoardObj().gameBoard.board;
         const player1 = createPlayer(playerXName, "X")();
         const player2 = createPlayer(playerOName, "O")();
-
-        // Initialize scores for tracking
-        player1.score = 0;
-        player2.score = 0;
         
         // Score Board
         let displayPlayer1Score = scoreBoard.querySelector('.player1Score');
@@ -115,16 +112,16 @@ document.addEventListener('DOMContentLoaded', () => {
             for (let combo of winningCombinations) {
                 const [a, b, c] = combo; // Destructure each index for the next part.
                 if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-                    header.textContent = `Winner: ${lastPlayer.playerName}!`;
+                    header.textContent = `Round Winner: ${lastPlayer.playerName}!`;
                     // Below: Track the scores
                     if (lastPlayer === player1) {
+                        // The Score is taken from the player object
                         player1.score++;
                     } else if (lastPlayer === player2) {
                         player2.score++;
                     }
                     displayPlayer1Score.textContent = `${player1.playerName}: ${player1.score}`;
                     displayPlayer2Score.textContent = `${player2.playerName}: ${player2.score}`;
-                    console.log(player2.score);
                     gameRunning = false;
                     return;
                 }
