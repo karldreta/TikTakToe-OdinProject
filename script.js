@@ -28,20 +28,30 @@ document.addEventListener('DOMContentLoaded', () => {
         gameBoard.style.display = 'none';
         const navPanel = document.querySelector('.nav-panel');
         navPanel.style.display = 'none';
+        const showInputErrors = document.querySelectorAll('.showError');
 
 
         playerNames.addEventListener('submit', e => {
             e.preventDefault();
             const playerXName = playerX.value;
             const playerOName = playerO.value;
-            playerInputForm.close();
-            playerInputForm.style.display = 'none';
-            gameTitle.style.display = 'block';
-            gameBoard.style.display = 'grid';
-            navPanel.style.display = 'block';
-            playGame(playerXName, playerOName);
-        })
+
+             if (playerXName === "" || playerOName === "") {
+                showInputErrors.forEach(error => {
+                error.textContent = '* Required';
+            });
+            return;
+        }
+                playerInputForm.close();
+                playerInputForm.style.display = 'none';
+                gameTitle.style.display = 'block';
+                gameBoard.style.display = 'grid';
+                navPanel.style.display = 'block';
+                playGame(playerXName, playerOName);
+        });
+
     }
+
 
     startGame()
 

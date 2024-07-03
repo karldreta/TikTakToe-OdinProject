@@ -106,20 +106,21 @@ main > .square {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 200px;
-    height: 250px;
+    width: 230px;
+    height: 300px;
     padding: 20px;
     font-size: 20px;
     background-color: #FFFF80;
     border: 3px solid #FF5580;
     border-radius: 20px;
-    box-shadow: 10px 10px;
+    box-shadow: 15px 15px;
 }
 
 .playerInput h2 {
     margin: 0;
     color: #FF0080;
     margin-bottom: 10px;
+    font-size: 35px;
 }
 
 .playerInput form {
@@ -135,12 +136,21 @@ main > .square {
 }
 
 .playerInput form input {
-    margin-bottom: 10px;
     padding: 2px;
     padding-left: 5px;
     border: 1.5px solid #ff557f8a;
     border-radius: 5px;
 }
+
+.playerInput .showError {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    color: 	#ff1717;
+    height: 16px;
+    margin-bottom: 10px;
+}
+
 
 .playerInput form input:focus {
     border: 1.5px solid #FF0080;
@@ -154,6 +164,7 @@ main > .square {
     border-radius: 20px;
     text-align: center;
     padding: 5px;
+    font-size: 14px;
     letter-spacing: 2px;
     color: #FF0080;
 }
