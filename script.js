@@ -142,7 +142,6 @@ document.addEventListener('DOMContentLoaded', () => {
             square.forEach(square => square.textContent = '');
             currentPlayer = player1;
             gameRunning = true;
-            const header = document.querySelector('h1');
             header.textContent = `${currentPlayer.playerName} goes first`;
         }
 
@@ -155,7 +154,6 @@ document.addEventListener('DOMContentLoaded', () => {
             square.forEach(square => square.textContent = '');
             currentPlayer = player2;
             gameRunning = true;
-            const header = document.querySelector('h1');
             header.textContent = `Switched: ${currentPlayer.playerName} goes first`;
         }
     }
