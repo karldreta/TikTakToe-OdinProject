@@ -221,6 +221,7 @@ main > .square {
 }
 
 .playerInput form input {
+    width: 150px;
     padding: 6px;
     padding-left: 10px;
     font-family: "Nanum Pen Script", cursive;

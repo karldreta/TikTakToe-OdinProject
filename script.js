@@ -158,8 +158,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Below: Restart Entire Game to allow new players
-        
+
         document.querySelector('#restartGame').addEventListener('click', () => {
+            // Reloads the window
             window.location.href = window.location.href;
         });
     }
